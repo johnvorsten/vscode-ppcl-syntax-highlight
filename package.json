@@ -3,6 +3,7 @@
   "displayName": "PPCL highlighting",
   "description": "This extension will highlight syntax of the Siemens proprietary PPCL programming language",
   "version": "0.0.1",
+  "repository": "https://github.com/johnvorsten/vscode-ppcl-syntax-highlight",
   "engines": {
     "vscode": "^1.96.0"
   },
