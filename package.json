@@ -1,0 +1,25 @@
+{
+  "name": "pcl",
+  "displayName": "PPCL highlighting",
+  "description": "This extension will highlight syntax of the Siemens proprietary PPCL programming language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pcl",
+      "aliases": ["PPCL", "pcl"],
+      "extensions": [".pcl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pcl",
+      "scopeName": "source.pcl",
+      "path": "./syntaxes/pcl.tmLanguage.json"
+    }]
+  }
+}

@@ -1,0 +1,111 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PPCL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#keywords-functions-builtin"
+		},
+		{
+			"include": "#keywords-local"
+		},
+		{
+			"include": "#keywords-numeric"
+		},
+		{
+			"include": "#keywords-relational"
+		},
+		{
+			"include": "#keywords-logical"
+		},
+		{
+			"include": "#keywords-arithmetic"
+		},
+		{
+			"include": "#keywords-priority"
+		},
+		{
+			"include": "#keywords-local"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#strings-line-comment"
+		}
+
+	],
+
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.operator.new",
+				"match": "(IF|THEN|ELSE|WAIT|ONPWRT|GOSUB|GOTO|RETURN)"
+			}]
+		},
+		"keywords-functions-builtin": {
+			"patterns": [{
+				"name": "keyword.control.pcl",
+				"match": "(ACT|ADAPTS|ALARM|AUTO|DAY|DBSWIT|DC|DCR|DEACT|DEFINE|DISABL|DISALM|DISCOV|DPHONE|EMAUTO|EMFAST|EMOFF|EMON|EMSET|EMSLOW|ENABLE|ENALM|ENCOV|EPHONE|FAST|HLIMIT|HOLIDA|INITTO|LLIMIT|LOCAL|LOOP|MAX|MIN|NIGHT|NORMAL|OFF|OIP|ON|PARAMETER|PDL|PDLDAT|PDLDPG|PDLMTR|PDLSET|RELEAS|SAMPLE|SET|SLOW|SSTO|SSTOCO|STATE|TABLE|TIMAVG|TOD|TODMOD|TODSET|ALMPRI|TOTAL)"
+			}]
+		},
+		"keywords-relational": {
+			"patterns": [{
+				"name": "keyword.operator.pcl",
+				"match": "(\\.EQ\\.|\\.GE\\.|\\.GT\\.|\\.LE\\.|\\.LT\\.|\\.NE\\.)"
+			}]
+		},
+		"keywords-logical": {
+			"patterns": [{
+				"name": "keyword.operator.pcl",
+				"match": "(\\.AND\\.|\\.NAND\\.|\\.OR.|\\.XOR\\.)"
+			}]
+		},
+		"keywords-arithmetic": {
+			"patterns": [{
+				"name": "keyword.control.pcl",
+				"match": "(\\+|\\=|\\/|\\*|\\-|ATN|COM|COS|EXP|LOG|\\.ROOT\\.|SIN|SQRT|TAN)"
+			}]
+		},
+		"keywords-priority": {
+			"patterns": [{
+				"name": "constant.numeric.pcl",
+				"match": "(@OPER|@EMER|@NONE|@PDL|@SMOKE|ALARM|ALMACK|AUTO|DEAD|LOW|OK|DAYMOD|FAILED|FAST|HAND|NGTMOD|PRFON)"
+			}]
+		},
+		"keywords-local": {
+			"patterns": [{
+				"name": "constant.numeric.pcl",
+				"match": "(\\$LOC1|\\$LOC2|\\$LOC3|\\$LOC4|\\LOC5|\\LOC6|\\LOC7|\\LOC8|\\LOC9|\\LOC10|\\LOC11|\\LOC12|\\LOC13|\\LOC14|\\LOC15|\\ARG1|\\ARG2|\\ARG3|\\ARG4|\\ARG5|\\ARG6|\\ARG7|\\ARG8|\\ARG9|\\ARG10|\\ARG11|\\ARG12|\\ARG13|\\ARG14|\\ARG15)"
+			}]
+		},
+		"keywords-numeric": {
+			"patterns": [{
+				"name": "constant.numeric.pcl",
+				"match": "\b(?<!^)(?<!\\.)[0-9]{1,10}(?!.{0,5}\\.)|\b(?<!^)(?<!\\.)[0-9]{1,4}\\.[0-9]{1,2}"
+			}]
+		},
+		"strings": {
+				"name": "string.quoted.double.pcl",
+				"begin": "\"",
+				"end": "\"",
+				"patterns": [{
+						"name": "constant.character.escape.pcl",
+						"match": "\\\\."
+					}]
+		},
+		"strings-line-comment": {
+			"name": "comment.block",
+			"begin": "[0-9]{5}\t[c|C]",
+			"end": "$",
+			"patterns": [{
+					"name": "constant.character.escape.pcl",
+					"match": ".{*}"
+				}]
+	}
+	},
+	"scopeName": "source.pcl"	
+}
+  

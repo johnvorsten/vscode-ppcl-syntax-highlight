@@ -1,0 +1,39 @@
+{
+    "comments": {
+        // symbol used for single line comment. Remove this entry if your language does not support line comments
+        // PPCL language supports single line comments when the line number is followed by a 'C' character
+        // PPCL lines start with a 5 character line number which is zero padded. An example of line 10 is "00010"
+        // Lines follow with a tab character (ASCII 0x9 or \t) then code. If a 'C' character immediately follows the
+        // tab then the line is commented out
+        //"lineComment": "[0-9]{5}\t[c|C]",
+        // This line is commented out becaues I don't think regex works when looking for line comments. I think the
+        // program only looks for an exact character match instead of regex. Line comments rae implemented in pcl.tmLangugage.json
+
+
+        // symbols used for start and end a block comment. Remove this entry if your language does not support block comments
+        // PPCL does not support block comments
+        //"blockComment": [ "/*", "*/" ]
+    },
+    // symbols used as brackets
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    // symbols that are auto closed when typing
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    // symbols that can be used to surround a selection
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ]
+}
