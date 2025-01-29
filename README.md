@@ -1,65 +1,31 @@
 # pcl README
 
-This is the README for your extension "pcl". After writing up a brief description, we recommend including the following sections.
+This is the README for a VSCode extension that adds syntax highlighting to the PPCL language.
 
 ## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Adds syntax highlighting to VS Code for PPCL
 
 ## Extension Settings
+Syntax highlighting relies on your settings already having some colors defined for the scopes [keyword.operator, keyword.control, constant.numeric, string.quoted.double, comment.block]. If you do not have these scopes defined then you will have to add them to your settings manually. Do this by
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Open User Settings:
+Press Ctrl+, to open the settings.
+Click on the {} icon in the top right corner to open the settings JSON file.
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+2. Add Custom Color:
+Add the following JSON to customize the color for the keyword.operator scope:
+```json
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": "keyword.operator",
+            "settings": {
+                "foreground": "#FF0000"  // Replace with your desired color
+            }
+        }
+    ]
+}
+```
 
 ## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Numeric constant highlighting does not work. I think the textmate software uses a slightly different regex syntax than the tester I was using. It seems like textmate doesn't recognize word boundaries \b the same way as the tester I was using.
